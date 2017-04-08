@@ -994,14 +994,14 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: normal;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
-  font-size: 13px;
-  color: #ddd;
+  font-size: 15px;
+  color: #fff;
 }
 .use-motion .brand {
   opacity: 0;
@@ -1117,6 +1117,14 @@ pre .javascript .function {
   -ms-transform: rotate(30deg);
   -o-transform: rotate(30deg);
   transform: rotate(30deg);
+}
+.post-body p a {
+  color: #0593d3;
+  border-bottom: none;
+}
+.post-body p a:hover {
+  color: #0477ab;
+  text-decoration: underline;
 }
 .posts-expand {
   padding-top: 40px;
@@ -1683,7 +1691,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffad99;
+  background: #afa4be;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3048,4 +3056,7 @@ pre .javascript .function {
 }
 ::-webkit-scrollbar-button:end:active {
   background: url("../images/scrollbar_arrow.png") no-repeat -30px -18px;
+}
+.post-toc .nav .nav-child {
+  display: block;
 }

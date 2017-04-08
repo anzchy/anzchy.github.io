@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/posts/55340/</loc>
+    <lastmod>2017-04-08T10:04:59.826Z</lastmod>
+    <data>
+        <display>
+        <title>用Hexo建立自己的博客站点</title>
+        <pubTime>2017-04-05T02:46:34.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="codings" url="http://yoursite.com/categories/codings/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://yoursite.com/posts/3681/</loc>
+    <lastmod>2017-04-08T09:08:40.718Z</lastmod>
+    <data>
+        <display>
+        <title>赚钱不易，花钱亦需小心</title>
+        <pubTime>2017-04-03T02:46:34.000Z</pubTime>
+        
+        <tag>财商</tag>
+         
+         
+           
+             
+              <breadCrumb title="书评" url="http://yoursite.com/categories/read/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+</urlset>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>anzchy</title>
+  <subtitle>我的成长札记</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-04-08T10:04:59.826Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>anzchy</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用Hexo建立自己的博客站点</title>
+    <link href="http://yoursite.com/posts/55340/"/>
+    <id>http://yoursite.com/posts/55340/</id>
+    <published>2017-04-05T02:46:34.000Z</published>
+    <updated>2017-04-08T10:04:59.826Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><br>一开始，我们都是小白，有的人动手了，渐渐地脱离了小白<br></blockquote>
+
+<p>最初的时候看到一个工科博士生建立的Wordpress站点，于是自己简单摸索着建了一个Wordpress站，贴上了第一篇文章，但是基于Wordpress站点，可DIY性太低。<br><a id="more"></a></p>
+<p>晚上看到李笑来的一篇文章：</p>
+<blockquote>
+<p><a href="http://lixiaolai.com/2016/06/22/makecs-build-a-blog-with-hexo-on-github/" target="_blank" rel="external">使用 Hexo 为自己在 Github 上建一个静态 Blog 站点 </a></p>
+</blockquote>
+<p>心血来潮，不如动手开干记录如下:</p>
+<h3 id="简要安装步骤"><a href="#简要安装步骤" class="headerlink" title="简要安装步骤"></a>简要安装步骤</h3><ol>
+<li><p>安装Windows版本 Git，Node.js；</p>
+<blockquote>
+<p><em>友情提示：</em><br>msi安装包直接双击安装，总报2503错误，因此建议<code>Win+X→命令提示符(管理员)</code>进入命令行，输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; msiexec /package D:\git.msi</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>申请github账号，新建repository ，public 属性，名称： <strong>yourname.github.io</strong>,<br>如我的名称就是：<strong>anzchy.github.io</strong></p>
+</li>
+<li>打开Gitbash，本地生成ssh key，并绑定至repository；</li>
+<li><p>Gitbash安装Hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
+</li>
+<li><p>初始化Hexo，安装npm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init F:\Git </div><div class="line">$ cd F:\Git</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中F:\Git是我们要存放的本地库根目录</p>
+<ol>
+<li>更改根目录下<code>_config.yml</code>文件，Hexo官网有，不赘述；</li>
+<li>原生的landscape主题较丑，安装Next主题<br>见官网<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next主题</a><br>###2017-4-2 添加侧边栏<br>4月1日回宿舍后，发现很多事情没做完，睡不着，索性自己尝试着申请个人网站，步骤如下：<br>1.Godaddy申请自己的个性域名：<code>anzchy.com</code>，7美刀，折合下来不到50块钱，还能用支付宝付款<br>2.DNS域名解析服务找DNSPod，注册后步骤如下：<blockquote>
+<p>①添加域名：就是godaddy注册的域名，我的是<code>anzchy.com</code><br>②添加A记录：关于如何添加，参照官网帮助文档：<br><a href="https://support.dnspod.cn/Kb/showarticle/tsid/177/" target="_blank" rel="external">学会使用DNSPod，仅需三步</a><br>③A记录的值也就是自己的GitHub网址，可以自己在Gitbash中ping一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; ping anzchy.github.io</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<p>添加dns的作用是我在浏览器搜索框不论是输入<br>anzchy.com，还是www.anzchy.com，都可以访问我的网站。</p>
+<p>3.将Github主题与anzchy.com域名绑定，刚开始我是在本地F:\Git新建一个CNAME文件，然后里面输入</p>
+<blockquote>
+<p>anzchy.com</p>
+</blockquote>
+<p>但是每一次<code>hexo deploy</code>后访问anzchy.com，都是404，搜索之后确定了，要将CNAME文件放进本地.\source文件夹下，对应我的地址是</p>
+<blockquote>
+<p>F:\Git\source</p>
+</blockquote>
+<p>这样<code>hexo generate</code> 命令后会ignore  域名下文件</p>
+<p>凌晨1:30，搞定了，可以睡个好觉了。</p>
+<h3 id="2017-4-3-添加评论框、侧边栏"><a href="#2017-4-3-添加评论框、侧边栏" class="headerlink" title="2017-4-3 添加评论框、侧边栏"></a>2017-4-3 添加评论框、侧边栏</h3><p>Next主题更新得很及时，很多人都在用，以下操作均在<code>themes\Next\_config.yml</code>中更改代码，从而实现：<br>1.先更改主题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scheme: Pisces</div></pre></td></tr></table></figure></p>
+<p>2.启用侧边栏<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sidebar:</div><div class="line">  position: right</div></pre></td></tr></table></figure></p>
+<p>3.开启评论，由于多说2017年6月会停止服务，故采用网易云跟帖，开发者已经加入了，网易官网注册后，将Product key放进来就好<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gentie_productKey: &quot;51e111a276934a5091a451aXXXXXXX&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="2017-4-4-优化阅读体验"><a href="#2017-4-4-优化阅读体验" class="headerlink" title="2017-4-4 优化阅读体验"></a>2017-4-4 优化阅读体验</h3><p>1.借鉴<a href="https://isudox.com/2016/07/14/customize-hexo-theme/" target="_blank" rel="external">Hexo主题美化</a>这篇帖子，添加上方阅读进度条，右方scrollbar属性，Chrome浏览器才能看到改变，不支持Firefox；<br>2.改变topbar颜色为绿色（默认为黑色）</p>
+<blockquote>
+<p>位置在：F:\git\themes\next\source\css_schemes\Pisces_brand.styl<br>更改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.site-meta &#123;</div><div class="line">  padding: 20px 0;</div><div class="line">  color: white;</div><div class="line">  background: rgb(92, 184, 92);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="主要参考教程："><a href="#主要参考教程：" class="headerlink" title="主要参考教程："></a>主要参考教程：</h3><p>1.<a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a>；<br>2.<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next官网</a>;<br>3.<a href="https://isudox.com/2016/07/14/customize-hexo-theme/" target="_blank" rel="external">Hexo 主题美化-I sudo X</a>;<br>4.<a href="http://jr0cket.co.uk/hexo/deconstructing-the-hexo-theme.html" target="_blank" rel="external">jr0cket大神</a>，这位大神将landscape主题进行美化，可惜和Next主题文件配置不一样，暂时不知道怎么借鉴它的代码，待研究，它还介绍了用Chrome Developer Tool 来调试<br>5.<a href="https://segmentfault.com/t/hexo" target="_blank" rel="external">segmentfault hexo板块问答</a><br>6.<a href="https://groups.google.com/group/hexo" target="_blank" rel="external">Google Hexo Group</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;br&gt;一开始，我们都是小白，有的人动手了，渐渐地脱离了小白&lt;br&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;最初的时候看到一个工科博士生建立的Wordpress站点，于是自己简单摸索着建了一个Wordpress站，贴上了第一篇文章，但是基于Wordpress站点，可DIY性太低。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="codings" scheme="http://yoursite.com/categories/codings/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>赚钱不易，花钱亦需小心</title>
+    <link href="http://yoursite.com/posts/3681/"/>
+    <id>http://yoursite.com/posts/3681/</id>
+    <published>2017-04-03T02:46:34.000Z</published>
+    <updated>2017-04-08T09:08:40.718Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/141583-8c178270f944783f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="学会花钱"></p>
+<p><blockquote class="blockquote-center"><br>书名：《学会花钱》<br>作者：【日】野口真人<br>豆瓣链接：<a href="https://book.douban.com/subject/26844959/" target="_blank" rel="external">《学会花钱》</a><br></blockquote></p>
+<hr>
+<p>很多人都知道赚钱的来之不易，但是花钱起来却大手大脚，随着微信、支付宝的普及，我们的支付方式越来越便捷，扫一个二维码，输入六位数支付密码，叮！这个月又月光了……</p>
+<p>花钱大手大脚是个病，得治。<br><a id="more"></a><br>关于花钱，本文的思想是区分三个钱包，《富爸爸穷爸爸》中提出要将更多的钱买入资产（股票、债券、股权投资、投资自己也算）而非负债（房子、车）；孙宇晨《财富自由革命之路》中也提到90后别买房，别买房，别买房；古典在畅销书《拆掉思维里的墙》告诫年轻人要摒弃结婚就买房的冲动，殊不知马云当年就是用原本买房的钱用来创业，如果当年用来买房的话，也就错过了90年代电子商务的兴起，今天的中国首富也许就易主了吧！</p>
+<p>本文主要谈一下《学会花钱》这本书，其他的书评会在之后推出。在接下来的一到两个月，我会将我听来的（每天听本书）、看到的（书籍）经过思考，转化成文字，期待和读者一起成长。</p>
+<p>赚钱的方法多种多样，花钱的渠道则大体上分为三个方向</p>
+<h1 id="一、三个钱包：多用投资钱包，适当用消费钱包，避免用投机钱包"><a href="#一、三个钱包：多用投资钱包，适当用消费钱包，避免用投机钱包" class="headerlink" title="一、三个钱包：多用投资钱包，适当用消费钱包，避免用投机钱包"></a>一、三个钱包：多用投资钱包，适当用消费钱包，避免用投机钱包</h1><h2 id="1-智用消费钱包："><a href="#1-智用消费钱包：" class="headerlink" title="1.智用消费钱包："></a>1.智用消费钱包：</h2><p><strong>消费钱包的消费，首先，钱要花的值</strong>：回想多年来，为了省钱，都趁双11屯了大量便宜货，美其名曰”物美价廉”，其实之后想来，与其每次100多买三双穿两三个月就坏了的高仿运动鞋，还不如买一双稍微贵点的800块Nike鞋，这不但节省了重复购买所花的成本，时间，还能省下更多精力专注于更加工作、成长。</p>
+<p>追求物美价廉的本质是什么？是因为原本在我的眼中，价值排序是这样的：金钱&gt;注意力&gt;时间，现在我更认可李笑来的看法：</p>
+<blockquote>
+<p>注意力&gt;时间&gt;金钱，因此买双贵的Nike鞋本质上就是帮我节省了精力。</p>
+</blockquote>
+<p><strong>其次，多用投资钱包所赚的钱来花费</strong>：这也和《富爸爸，穷爸爸》思想一致，譬如投资彩票赚了500块，用500块来消费，而少用辛辛苦苦赚来的钱来买贵东西，化妆品，首饰等等。无论如何我们也要每月拿出一定的金钱投入资产项，用资产来增值，而不是将发到银行卡的钱直接花出去了。</p>
+<p>如果直接花银行卡的钱，这样的话我们只能想方设法更努力地工作，譬如多做一份工作来维持我们的生计，殊不知月薪2万块时的开支不同与月薪2000的开支，收入越高，就越想买贵的，为了买贵的，就不得不更加努力的工作，从而成为金钱的“奴役”。</p>
+<p>相反，用投资钱包的钱来花费，则是让我们在工作和理财上越来越主动，为了买更好的东西，我们就得让投资钱包赚更多的钱，因此我们首先得提高收入，以将更多的钱用作投资；其次我们得想方设法将钱投入到收益率更高的资产。</p>
+<h2 id="2-慎用投机钱包"><a href="#2-慎用投机钱包" class="headerlink" title="2.慎用投机钱包"></a>2.慎用投机钱包</h2><p>这里作者不建议大家将过多收入用于投机钱包，诸如买彩票，买收藏品，赌马等等。学习过统计学，就知道买彩票中奖的概率是极低的，中大奖更低。希望用投机来致富的人缺乏对数学的敬畏，终究会吃亏。</p>
+<p>记得有调查显示，通过买彩票中大奖的百万富翁，绝大多数在之后的十年内都会将钱财花光，回归中彩票钱的经济状态，所谓繁华如过眼烟云，大抵如此。因为他们本身在财商上就不及格，将大部分钱用于“消费”结果吧！</p>
+<h2 id="3-多用投资钱包："><a href="#3-多用投资钱包：" class="headerlink" title="3.多用投资钱包："></a>3.多用投资钱包：</h2><p>在消费钱包中讲过，要尽量用投资钱包所赚的钱来消费，作为自己投资的“犒劳”,投资的途径多种多样，但是前提是要认识到下面一个定律：</p>
+<blockquote>
+<p>高风险高回报，高回报高风险</p>
+</blockquote>
+<p>天上不会掉下来高收益又低风险的资产，否则大家认识到这个机会，会导致大量套利行为，最终收益也会降下来。总体来看投资资产的风险排序为：活期存款&lt;债券&lt;基金&lt;股票，为什么基金位于股票和债券之间呢？因为基金都是配置一部分股票，一部分债券来平衡风险的。</p>
+<p>孙宇晨在财富自由之路中说：50万以下其实在国内是没有好的投资升值渠道的，买房？在上海还不够个首付，50万以上，或许可以去NASDAQ寻求增值机会。不过投资时，保险起见还是拿出一定比例作为流动资金（债券，定期存款），一部分用作股票。</p>
+<p>另外，年轻时多投资自己，买书看，买网课提升自己，都挺好，有人说过这样一句话：“当年屯书，如今屯课”，哈哈，挺深刻的。</p>
+<p>我一直有一个疑惑，为什么对于某些人，房屋是资产？对于另外大部分人，房屋是负债？<br>答案也许就是钱的规模吧！<br>如果你买房是用来住的，它就是负债，装修费、水电煤、家政费都要花钱。<br>如果你买房是用来转手从而卖出一个差价的，同时你手里资金量充足，短期内不却流动性资金，那它就是资产，每个月可以收取房租给你带来收入。</p>
+<h1 id="二、让钱越花越多的原则：只买以后会更值钱的东西"><a href="#二、让钱越花越多的原则：只买以后会更值钱的东西" class="headerlink" title="二、让钱越花越多的原则：只买以后会更值钱的东西"></a>二、让钱越花越多的原则：只买以后会更值钱的东西</h1><h2 id="1-估算未来现金流的现值时记得打个折扣。"><a href="#1-估算未来现金流的现值时记得打个折扣。" class="headerlink" title="1.估算未来现金流的现值时记得打个折扣。"></a>1.估算未来现金流的现值时记得打个折扣。</h2><p>简单来说，过去10块钱能买到的东西，今天可能要15元才能买到。原因就是通货膨胀，货币购买力下降了。这里就涉及到折现。书中提到，如果有两个培训班让你选择：3万（教日常英语）和10万（教商务英语）的英语培训班，如何选择？那要看我们培训最终要达到的目的是如何？</p>
+<p>如果只是想满足日常交流的目的，大可不必学商务英语；但是如果工作需要用到商务英语，和国际客户做买卖，一笔买卖可能就几十万，甚至上百万上亿，比起现在花的这点小钱，花10万块虽然短时间会让生活拮据点，但是长期看更值。</p>
+<p>再举另外一个场景，李海峰的Disc课程，一本书也就不过30元，线下双证班课程3300元，那你选择哪一样？对于大多数人来说，3300元更值，首先书中的知识可能只够入门，让我们认识自己是属于D、I、S、C哪种性格？而线下课程虽贵，优势却很显著。一是和导师有大量互动，有课堂氛围；二则集中授课，思维碰撞，认识更深刻。线下课程带来的同好也扩大了我们的交际圈，因此后者长远看，是非常划算的。</p>
+<p>折现反过来，就是复利，即从今天开始的每个月投入一定数量的钱，在未来这些现金的价值。很多人往往低估了复利效应，很多时候你没有成功可能就是坚持的不够持久，这也是我们所需要锻炼的品质。李笑来说，我们要对未来充满盲目的乐观，盲目到谁嘲笑我们就跟谁急！同样我们要相信复利效应带给自己的改变，也就是说我们要不断畅想未来成功后的状态。</p>
+<blockquote>
+<p>活在未来，而不是活在当下，这样我们就有更大的动力坚持下来。</p>
+</blockquote>
+<h1 id="三、避开两个陷阱"><a href="#三、避开两个陷阱" class="headerlink" title="三、避开两个陷阱"></a>三、避开两个陷阱</h1><h2 id="1-概率错觉"><a href="#1-概率错觉" class="headerlink" title="1.概率错觉"></a>1.概率错觉</h2><p>概率上讲买彩票等投机行为是很难赚到钱的，支付宝经常在节假日推充话费抽大奖活动（可以有机会抽中iphone6 Plus哦），可是我们大脑经常会自动脑补，如果这次没有抽中，再来一次概率会更大。老虎机也是利用这种错觉心理来赚钱的吧。</p>
+<h2 id="2-错误判断的习惯"><a href="#2-错误判断的习惯" class="headerlink" title="2.错误判断的习惯"></a>2.错误判断的习惯</h2><p>人们往往对较高的概率反应不足，对较低的概率反应过度。因此赌徒越是输得快精光时，越愿意all in，用更大的赌注赌这次翻盘，殊不知输赢概率始终是1/2，不以人的意志为转移。汽车出事故概率高于飞机，911事件给航空业带来了阴影，因此有很多人避免坐飞机，结果911之后，汽车出事故概率大大增加</p>
+<p>#最后总结下：<br>1.赚钱不易，花钱也要小心，拿到工资后，先拿出一定比例划入到投资账户，而不是先拿去付房租、水电费等等。尽量用投资账户赚来的钱拿来消费，消费的时候不要追求物美价廉，买值得买的东西，这节省下来的不仅仅是钱，还有时间、精力。<br>2.让钱越花越多的秘密是买以后更值钱的东西，从这方面看投资自己就是这样，买书看也是如此，股权投资、炒房何尝不是如此。<br>3.算投资现值时考虑折现，相信复利的力量<br>4.对概率报以敬畏之心，就不会去投机（买彩票，玩all in）,也不会放着飞机不坐，去坐汽车。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/141583-8c178270f944783f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;学会花钱&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;br&gt;书名：《学会花钱》&lt;br&gt;作者：【日】野口真人&lt;br&gt;豆瓣链接：&lt;a href=&quot;https://book.douban.com/subject/26844959/&quot;&gt;《学会花钱》&lt;/a&gt;&lt;br&gt;&lt;/blockquote&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;很多人都知道赚钱的来之不易，但是花钱起来却大手大脚，随着微信、支付宝的普及，我们的支付方式越来越便捷，扫一个二维码，输入六位数支付密码，叮！这个月又月光了……&lt;/p&gt;
+&lt;p&gt;花钱大手大脚是个病，得治。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="书评" scheme="http://yoursite.com/categories/read/"/>
+    
+    
+      <category term="财商" scheme="http://yoursite.com/tags/money/"/>
+    
+  </entry>
+  
+</feed>
